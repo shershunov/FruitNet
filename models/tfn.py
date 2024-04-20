@@ -17,7 +17,7 @@ class ConvBNSiLU(nn.Module):
 class TFN(nn.Module):
     def __init__(self):
         super(TFN, self).__init__()
-        self.num_classes = 0
+        self.num_classes = 3
 
         self.conv1 = ConvBNSiLU(in_channels=3, out_channels=32, kernel_size=6, stride=2, padding=1)
         self.conv2 = ConvBNSiLU(in_channels=32, out_channels=64, kernel_size=4, stride=1, padding=1)
