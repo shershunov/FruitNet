@@ -4,4 +4,4 @@
 <img src="https://i.imgur.com/fhQqzPu.png" width=28%>
 <img src="https://i.imgur.com/jAI0GXW.png" width=28%> <br>
 # Architecture
-<img src="https://github.com/shershunov/FruitNet/assets/71601841/46511155-c311-462e-a83e-f27e97c8bd04" width=80%>
+<img src="https://github.com/shershunov/FruitNet/assets/71601841/46511155-c311-462e-a83e-f27e97c8bd04" width=68%>
