@@ -10,4 +10,4 @@
 </div>
 
 # Architecture
-<img src="https://github.com/shershunov/FruitNet/assets/71601841/d847509d-aef9-4af1-b2c4-90f148d48758" width=70%> 
+<img src="https://github.com/shershunov/FruitNet/assets/71601841/3f387c92-e969-40dd-b94e-6d756263bd89">
