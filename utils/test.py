@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 from utils.common import transform_img, device
 
 
-def predict(model, image):
-    image = transform_img(image, aug=False).to(device)
+def predict(model, image, width, height):
+    image = transform_img(image, width, height, aug=False).to(device)
     return model(image.unsqueeze(0))
 
 
@@ -19,21 +19,18 @@ def draw_graph(losses):
     plt.show()
 
 
-def test_val(model):
+def test_val(model, path, width=128, height=128):
     model.load_state_dict(torch.load('best.pt'))
     model.eval()
-    path = 'data/val'
+
     val_photos = listdir(path)
     classes = {0: 'apple', 1: 'banana', 2: 'kiwi'}
 
     for photo in val_photos:
-        img_path = f'{path}/{photo}'
+        img = Image.open(f'{path}/{photo}').convert('RGB')
+        predictions = predict(model, img, width, height).tolist()[0]
 
-        img = Image.open(img_path).convert('RGB').resize((256, 256))
-        predictions = predict(model, img).tolist()[0]
-
-        img = asarray(img)
-        plt.imshow(img)
+        plt.imshow(asarray(img))
 
         plt.text(0, -10,
                  f'{list(map(lambda x: round(x, 4), predictions))} {classes[predictions.index(max(predictions))]}',

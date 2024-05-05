@@ -15,9 +15,8 @@ class ConvBNSiLU(nn.Module):
 
 
 class TFN(nn.Module):
-    def __init__(self):
+    def __init__(self, num_classes):
         super(TFN, self).__init__()
-        self.num_classes = 3
 
         self.conv1 = ConvBNSiLU(in_channels=3, out_channels=32, kernel_size=6, stride=2, padding=1)
         self.conv2 = ConvBNSiLU(in_channels=32, out_channels=64, kernel_size=4, stride=1, padding=1)
@@ -49,7 +48,7 @@ class TFN(nn.Module):
         self.conv20 = ConvBNSiLU(in_channels=192, out_channels=192, kernel_size=1, stride=1, padding=1)
         self.conv21 = ConvBNSiLU(in_channels=192, out_channels=256, kernel_size=1, stride=1, padding=1)
 
-        self.conv22 = ConvBNSiLU(in_channels=640, out_channels=self.num_classes, kernel_size=1, stride=1, padding=1)
+        self.conv22 = ConvBNSiLU(in_channels=640, out_channels=num_classes, kernel_size=1, stride=1, padding=1)
 
         self.gap = nn.AdaptiveAvgPool2d((1, 1))
 

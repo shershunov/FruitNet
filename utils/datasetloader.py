@@ -1,5 +1,4 @@
 from os import listdir
-from random import shuffle
 from PIL import Image
 from torch.utils.data import Dataset
 import torch
@@ -8,29 +7,29 @@ from utils.common import transform_img, device
 
 
 class DatasetLoader(Dataset):
-    def __init__(self):
-        self.path = 'data/train'
-        self.paths = len(listdir(self.path))
+    def __init__(self, num_classes, path, width=128, height=128):
+        self.num_classes = num_classes
+        self.width = width
+        self.height = height
+
+        self.path = path
+        self.class_dirs = len(listdir(self.path))
         self.images = []
         self.targets = []
-
-        self.elements = 0
 
         self.load_images(aug=False)
         self.load_images(aug=True)
 
     def load_images(self, aug=False):
-        for label in range(self.paths):
-            img_paths = listdir(f'{self.path}/{label}')
-            shuffle(img_paths)
+        for label in range(self.class_dirs):
+            current_dir = f'{self.path}/{label}'
+            img_paths = listdir(current_dir)
             for img in img_paths:
-                self.elements += 1
-                full_path = f'{self.path}/{label}/{img}'
-                image = Image.open(full_path).convert('RGB')
+                image = Image.open(f'{current_dir}/{img}').convert('RGB')
 
-                self.images.append(transform_img(image, aug).to(device))
+                self.images.append(transform_img(image, self.width, self.height, aug).to(device))
 
-                target = [0, 0, 0]
+                target = [0 for _ in range(self.num_classes)]
                 target[int(label)] = 1
                 self.targets.append(target)
 
@@ -40,7 +39,7 @@ class DatasetLoader(Dataset):
         return {'image': image, 'target': target}
 
     def __len__(self):
-        return self.elements
+        return len(self.images)
 
 
 def collate_fn(batch):

@@ -7,17 +7,24 @@ from utils.train import train_model
 from utils.test import test_val, draw_graph
 from utils.common import device
 
+train_path = 'data/train'
+val_path = 'data/val'
 BATCH = 120
-EPOCHS = 15
+EPOCHS = 128
+WIDTH = 128
+HEIGHT = 128
+num_classes = 3
+learning_rate = 1e-2
 
-model = TFN().to(device)
+model = TFN(num_classes).to(device)
 
-dataset = DatasetLoader()
+dataset = DatasetLoader(num_classes, train_path, WIDTH, HEIGHT)
 dataloader = DataLoader(dataset, batch_size=BATCH, shuffle=True, collate_fn=collate_fn)
 
-optimizer = torch.optim.AdamW(model.parameters(), lr=0.01)
+optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 
 losses_train = train_model(model, dataloader, optimizer, EPOCHS)
 
 draw_graph(losses_train)
-test_val(model)
+
+test_val(model, val_path, WIDTH, HEIGHT)
