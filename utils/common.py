@@ -1,3 +1,4 @@
+from os import listdir
 from torchvision.transforms import v2
 import torch
 
@@ -20,3 +21,7 @@ def transform_img(img, width, height, aug=False):
         v2.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
 
     return transform_aug(img) if aug else transform_norm(img)
+
+
+def get_num_classes(path):
+    return len(listdir(path))

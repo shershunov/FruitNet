@@ -12,7 +12,7 @@ def predict(model, image, width, height):
     return model(image.unsqueeze(0))
 
 
-def draw_graph(losses):
+def draw_losses_graph(losses):
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
     plt.plot(losses)
