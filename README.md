@@ -1,10 +1,10 @@
 # 🍌FruitNet🥝
 <div align="center">
 <a href="https://colab.research.google.com/drive/1uEmHVAXZre1hUgqMokzmeYIpcVnuSEQ8?usp=sharing" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
-<a href="https://3a7b1c50-c094-442d-9a2b-ec7d86e02c7c.selstorage.ru/data.zip">🍎Dataset🍌</a>
 </div>
 
 #### Project Overview
+
 
 In a world where the complexity of neural networks can often be overwhelming, i've taken a step back to focus on the essentials of image classification. This repository contains a simple CNN architecture that serves as a cornerstone for anyone interested in learning how to classify images, without diving into the complexities of more advanced models.
 
@@ -35,6 +35,7 @@ data/
     1.jpg
     ...
 ```
+<a href="https://github.com/shershunov/FruitNet/files/15226620/data.zip">Download dataset</a>
 
 # Architecture
 <img src="https://github.com/shershunov/FruitNet/assets/71601841/fff96eda-8d99-46a7-8ae0-dab8690105c0">
