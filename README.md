@@ -21,5 +21,20 @@ In a world where the complexity of neural networks can often be overwhelming, i'
 <img src="https://i.imgur.com/jAI0GXW.png" width=20%> <br>
 </div>
 
+#### Dataset
+```
+data/
+  train/
+    0/
+      1.jpg
+      ...
+    1/
+      1.jpg
+      ...
+  val/
+    1.jpg
+    ...
+```
+
 # Architecture
 <img src="https://github.com/shershunov/FruitNet/assets/71601841/fff96eda-8d99-46a7-8ae0-dab8690105c0">
