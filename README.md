@@ -6,7 +6,7 @@
 #### Project Overview
 
 
-In a world where the complexity of neural networks can often be overwhelming, i've taken a step back to focus on the essentials of image classification. This repository contains a simple CNN architecture that serves as a cornerstone for anyone interested in learning how to classify images, without diving into the complexities of more advanced models.
+This repository contains a simple CNN architecture that serves as a cornerstone for anyone interested in learning how to classify images, without diving into the complexities of more advanced models.
 
 #### Features
 
